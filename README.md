@@ -25,3 +25,20 @@ It is designed to demonstrate **low-latency data fetching**, **relational databa
    ```bash
    git clone [https://github.com/AryanMohan818/Equity-Risk-Monitor.git](https://github.com/AryanMohan818/Equity-Risk-Monitor.git)
    cd Equity-Risk-Monitor
+2. **Install Dependencies**
+*   **Bash Command** = pip install yfinance pandas
+3. **Run the Monitor**
+*   **Bash Command** = python app.py OR    python main.py
+  
+📊 How It Works
+1. Initialization: The script connects to the SQLite database and loads the target portfolio.
+
+2. Polling: It queries the Yahoo Finance API at set intervals to get the current market price (CMP).
+
+3. Risk Evaluation:
+
+* Algorithm: Risk = (Entry_Price - Current_Price) / Entry_Price
+
+* If Risk > 5%: The system flags the asset and logs a "CRITICAL" alert to the database.
+
+4. Reporting: Outputs a summary of "At-Risk" assets to the console for immediate action.
